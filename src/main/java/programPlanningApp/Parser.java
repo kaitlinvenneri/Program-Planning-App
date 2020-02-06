@@ -1,5 +1,4 @@
-package programPlanningApp;
+package programplanningapp;
 
 public class Parser {
-    
 }
