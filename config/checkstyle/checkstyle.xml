@@ -79,7 +79,9 @@
         <!-- See https://checkstyle.org/config_javadoc.html -->
         <!--<module name="InvalidJavadocPosition"/>-->
         <module name="JavadocMethod"/>
-        <module name="JavadocType"/>
+        <module name="JavadocType">
+            <property name="scope" value="public"/>
+        </module>
         <!--<module name="JavadocVariable"/>-->
         <module name="JavadocStyle"/>
         <module name="MissingJavadocMethod"/>
