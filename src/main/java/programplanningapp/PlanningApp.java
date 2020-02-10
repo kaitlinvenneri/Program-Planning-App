@@ -4,18 +4,6 @@ public class PlanningApp {
     private Menu mainMenu;
 
     /**
-     * Method for setting up the app.
-     */
-    public void setup() {
-        InputHandler inputHandler = new InputHandler();
-        mainMenu = createMainMenu();
-        System.out.print(mainMenu.toString());
-
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(mainMenu, command);
-    }
-
-    /**
      * Create the main menu for the app.
      *
      *  @return main menu
@@ -39,5 +27,23 @@ public class PlanningApp {
     public static void main(String[] args) {
         PlanningApp planningApp = new PlanningApp();
         planningApp.setup();
+    }
+
+    /**
+     * Method for setting up the app.
+     */
+    private void setup() {
+        InputHandler inputHandler = new InputHandler();
+        mainMenu = createMainMenu();
+        System.out.println(getWelcomeMessage());
+        System.out.print(mainMenu.toString());
+
+        int command = inputHandler.getCommand();
+        inputHandler.processCommand(mainMenu, command);
+    }
+
+    private String getWelcomeMessage() {
+        return "Welcome to the program planning app!\n"
+                + "This application will allow you to plan your academic program.\n";
     }
 }
