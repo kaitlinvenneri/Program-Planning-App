@@ -10,6 +10,7 @@ public class TranscriptFileParser {
      *
      * @param filename The name of the file.
      * @return The parsed collection of courses
+     * @throws Exception Either file IO exception, or invalid file type exception
      */
     public ArrayList<CourseAttempt> parseFile(String filename) throws Exception {
         InputHandler inputHandler = new InputHandler();
@@ -38,6 +39,7 @@ public class TranscriptFileParser {
      *
      * @param line A single line to parse.
      * @return The parsed course attempt
+     * @throws Exception Regarding invalid file type
      */
     private CourseAttempt parseLineIntoCourseAttempt(String line) throws Exception {
         String[] parsedLine = line.split(",");

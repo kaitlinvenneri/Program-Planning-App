@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 public class CourseFileParser {
     /**
-     * Handle the parsing of the transcript file.
+     * Handle the parsing of the course list file.
      *
      * @param filename The name of the file.
      * @return The parsed collection of courses
+     * @throws Exception Either file IO exception, or invalid file type exception
      */
     public ArrayList<Course> parseFile(String filename) throws Exception {
         Scanner scanner = null;
@@ -38,6 +39,7 @@ public class CourseFileParser {
      *
      * @param line A single line to parse.
      * @return The parsed admin course
+     * @throws Exception Regarding invalid file type
      */
     private AdminCourse parseLineIntoAdminCourse(String line) throws Exception {
         String[] parsedLine = line.split(",");
