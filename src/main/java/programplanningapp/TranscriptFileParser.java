@@ -21,6 +21,7 @@ public class TranscriptFileParser {
 
         try {
             scanner = new Scanner(new File(filename));
+            //try to parse each line into a course attempt
             while (scanner.hasNext()) {
                 oneLine = scanner.nextLine();
                 courseAttempt = parseLineIntoCourseAttempt(oneLine);

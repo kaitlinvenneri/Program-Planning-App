@@ -20,7 +20,8 @@ public class InputHandler {
         Scanner scanner = new Scanner(System.in);
         String filename;
         String separator = System.getProperty("file.separator");
-//        filename = "./src/main/resources/" + scanner.nextLine();
+        //handling filename creation for multiple operating systems
+        //require all files to be in resources
         filename = "." + separator + "src" + separator + "main"
                 + separator + "resources" + separator + scanner.nextLine();
 
@@ -34,7 +35,8 @@ public class InputHandler {
      * @return the users command converted to an int
      */
     public int getCommand() {
-        //TODO: Improve Error handling here too
+        //TODO: Improve Error handling here
+        //Currently this handles errors by creating a command guaranteed to not be an option
         int command = 0;
         System.out.println("> ");
         Scanner scanner = new Scanner(System.in);

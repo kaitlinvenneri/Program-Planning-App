@@ -20,11 +20,11 @@ public class CourseFileParser {
 
         try {
             scanner = new Scanner(new File(filename));
+            //try to convert each line of file to a course
             while (scanner.hasNext()) {
                 oneLine = scanner.nextLine();
                 course = parseLineIntoAdminCourse(oneLine);
                 coursesToUpload.add(course);
-                //System.out.println(oneLine);
             }
             scanner.close();
         } catch (Exception e) {
