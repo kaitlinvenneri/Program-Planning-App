@@ -1,5 +1,7 @@
 package programplanningapp;
 
+import java.util.ArrayList;
+
 public class UploadTranscriptMenuOption implements MenuOption {
     private int value;
     private String description;
@@ -46,7 +48,24 @@ public class UploadTranscriptMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        System.out.println("Handling of Upload Transcript");
+        InputHandler inputHandler = new InputHandler();
+        FileParser transcriptParser = new TranscriptFileParser();
+        String filename;
+        ArrayList<Course> courses;
+        Student student = new Student();
+
+        System.out.println("Please enter the name of the file containing the transcript");
+        System.out.println("The file is assumed to be in the resources directory.");
+        System.out.println("For instance for transcript.csv, only enter \"transcript.csv\":");
+        filename = inputHandler.getFilename();
+        courses = transcriptParser.parseFile(filename);
+        student.setCoursesOnTranscript(courses);
+
+//        for (Course course : student.getCoursesOnTranscript()) {
+//            System.out.println(course.toString());
+//        }
+
+        System.out.println("You have " + student.getCoursesOnTranscript().size() + " courses on your transcript.");
     }
 
     /**

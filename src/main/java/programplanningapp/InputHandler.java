@@ -10,6 +10,22 @@ public class InputHandler {
     }
 
     /**
+     * Get a filename from the user.
+     *
+     * @return the name of the file provided by the user
+     */
+    public String getFilename() {
+        int command = 0;
+        System.out.println("> ");
+        Scanner scanner = new Scanner(System.in);
+        String filename;
+        filename = "./src/main/resources/" + scanner.nextLine();
+
+        return filename;
+    }
+
+
+    /**
      * Get a command from the user and convert to an int.
      *
      * @return the users command converted to an int
