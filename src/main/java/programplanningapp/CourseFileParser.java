@@ -11,7 +11,7 @@ public class CourseFileParser {
      * @param filename The name of the file.
      * @return The parsed collection of courses
      */
-    public ArrayList<Course> parseFile(String filename) {
+    public ArrayList<Course> parseFile(String filename) throws Exception {
         Scanner scanner = null;
         String oneLine;
         AdminCourse course;
@@ -27,8 +27,7 @@ public class CourseFileParser {
             }
             scanner.close();
         } catch (Exception e) {
-            //I need to return to this to make the error handling better
-            System.out.println("nope");
+            throw e;
         }
 
         return coursesToUpload;
@@ -40,7 +39,7 @@ public class CourseFileParser {
      * @param line A single line to parse.
      * @return The parsed admin course
      */
-    private AdminCourse parseLineIntoAdminCourse(String line) {
+    private AdminCourse parseLineIntoAdminCourse(String line) throws Exception {
         String[] parsedLine = line.split(",");
         AdminCourse adminCourse;
         String courseCode;
@@ -49,23 +48,40 @@ public class CourseFileParser {
         ArrayList<String> prereqs;
         String[] parsedCodes;
 
-        courseCode = parsedLine[0];
-
-        credits = Double.parseDouble(parsedLine[1]);
-
-        name = parsedLine[2];
-        prereqs = new ArrayList<>();
-
-        if (parsedLine.length == 4) {
-            parsedCodes = parsedLine[3].split(":");
-            for (String code : parsedCodes) {
-                //System.out.println(code);
-                prereqs.add(code);
+        try {
+            if (parsedLine.length < 3) {
+                throw new Exception();
             }
+
+            for (String linePart : parsedLine) {
+                if (linePart.isEmpty()) {
+                    throw new Exception();
+                }
+            }
+
+            //TODO: Add more Exception Handling
+            //Possibly allowing whitespace
+            //Validate that each component is correct
+
+            courseCode = parsedLine[0];
+
+            credits = Double.parseDouble(parsedLine[1]);
+
+            name = parsedLine[2];
+            prereqs = new ArrayList<>();
+
+            if (parsedLine.length == 4) {
+                parsedCodes = parsedLine[3].split(":");
+                for (String code : parsedCodes) {
+                    prereqs.add(code);
+                }
+            }
+
+            adminCourse = new AdminCourse(courseCode, credits, name, prereqs);
+
+            return adminCourse;
+        } catch (Exception e) {
+            throw e;
         }
-
-        adminCourse = new AdminCourse(courseCode, credits, name, prereqs);
-
-        return adminCourse;
     }
 }

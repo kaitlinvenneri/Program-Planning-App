@@ -60,20 +60,22 @@ public class UploadTranscriptMenuOption implements MenuOption {
         System.out.println("The file is assumed to be in the resources directory.");
         System.out.println("For instance for transcript.csv, only enter \"transcript.csv\":");
         filename = inputHandler.getFilename();
-        courses = transcriptParser.parseFile(filename);
-        student.setCoursesOnTranscript(courses);
+        try {
+            courses = transcriptParser.parseFile(filename);
+            student.setCoursesOnTranscript(courses);
+            System.out.println("You have " + student.getCoursesOnTranscript().size()
+                    + " courses on your transcript.\n");
 
-//        for (Course course : student.getCoursesOnTranscript()) {
-//            System.out.println(course.toString());
-//        }
+            createUserSubMenu();
+            System.out.print(userSubMenu.toString());
 
-        System.out.println("You have " + student.getCoursesOnTranscript().size() + " courses on your transcript.\n");
-
-        createUserSubMenu();
-        System.out.print(userSubMenu.toString());
-
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(userSubMenu, command);
+            int command = inputHandler.getCommand();
+            inputHandler.processCommand(userSubMenu, command);
+        } catch (Exception e) {
+            System.out.println("The filename you provided either does not exist, "
+                    + "or contains an invalid transcript file.");
+            handleMenuOption();
+        }
     }
 
     /**
