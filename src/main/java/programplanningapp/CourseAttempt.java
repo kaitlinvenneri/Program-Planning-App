@@ -6,7 +6,7 @@ public class CourseAttempt extends Course {
     private String semester;
 
     /**
-     * Create the course and initialize the course code.
+     * Create the course and initialize.
      *
      * @param courseCode the course code corresponding to the course
      * @param courseStatus the status of the course attempt in relation to the student's attempt
