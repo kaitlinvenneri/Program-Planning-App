@@ -3,7 +3,7 @@ package programplanningapp;
 import java.util.ArrayList;
 
 public class Student {
-    private ArrayList<Course> coursesOnTranscript;
+    private ArrayList<CourseAttempt> coursesOnTranscript;
 
     /**
      * Create the Student.
@@ -16,7 +16,7 @@ public class Student {
      *
      * @param courses courses from transcript.
      */
-    public void setCoursesOnTranscript(ArrayList<Course> courses) {
+    public void setCoursesOnTranscript(ArrayList<CourseAttempt> courses) {
         coursesOnTranscript = courses;
     }
 
@@ -25,7 +25,7 @@ public class Student {
      *
      * @return The courses from transcript.
      */
-    public ArrayList<Course> getCoursesOnTranscript() {
+    public ArrayList<CourseAttempt> getCoursesOnTranscript() {
         return coursesOnTranscript;
     }
 }
