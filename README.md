@@ -73,7 +73,7 @@ Some classes that I would like to improve on with regards to the Single Responsi
 
 The reason that these currently require improvement is because I am still deciding on how to handle the flow of the program. Because of this, MenuOptions currently may be responsible for more than one responsibility, including controlling the flow of the program. I would like to make this better. PlanningApp also suffers from this issue as this is the class that sets up the application initially and begins the menu creation and flow for both user types.
 
-**Open-Close Principle Analysis**
+**Open-Closed Principle Analysis**
 
 I implemented the Open-Closed Principle in the way that I created a MenuOption interface, which multiple MenuOptions implement (AdminMenuOption, QuitMenuOption, UploadCoursesMenuOption, UploadTranscriptMenuOption, UserMenuOption). The Open-Closed Principle has been demonstrated here in that the MenuOption interface contains the methods required for controlling MenuOptions, but how the methods are implemented are up to the MenuOptions that implement this interface. This allows for structure in requiring anything that implements the interface to include necessary functionality, but there is flexibility in how the MenuOptions choose to do so.
 
