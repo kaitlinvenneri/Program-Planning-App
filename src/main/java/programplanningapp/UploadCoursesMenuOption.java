@@ -1,5 +1,7 @@
 package programplanningapp;
 
+import java.util.ArrayList;
+
 public class UploadCoursesMenuOption implements MenuOption {
     private int value;
     private String description;
@@ -46,7 +48,21 @@ public class UploadCoursesMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        System.out.println("Handling of Upload Courses");
+        InputHandler inputHandler = new InputHandler();
+        FileParser courseFileParser = new CourseFileParser();
+        String filename;
+        ArrayList<Course> courses;
+
+        System.out.println("Please enter the name of the file containing the courses to be added");
+        System.out.println("The file is assumed to be in the resources directory.");
+        System.out.println("For instance for courselist.csv, only enter \"courselist.csv\":");
+        filename = inputHandler.getFilename();
+        courses = courseFileParser.parseFile(filename);
+
+        System.out.println("You have input the following courses: ");
+        for (Course course : courses) {
+            System.out.println(course.toString());
+        }
     }
 
     /**
