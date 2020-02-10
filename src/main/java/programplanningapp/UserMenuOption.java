@@ -59,9 +59,11 @@ public class UserMenuOption implements MenuOption {
      * Create the menu of options the administrator can choose from.
      */
     private void createUserMenu() {
-        userMenu = new Menu();
+        userMenu = new Menu("You have reached the Student menu");
         MenuOption uploadTranscript = new UploadTranscriptMenuOption("Upload Transcript");
         userMenu.addOption(uploadTranscript);
+        MenuOption quitOption = new QuitMenuOption("Quit");
+        userMenu.addOption(quitOption);
     }
 
     /**

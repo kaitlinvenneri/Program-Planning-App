@@ -31,6 +31,7 @@ public class AdminCourse extends Course {
         adminCourseString = adminCourseString + "Course Code: " + super.getCode()
                 + ", Course name: " + name + ", Credits: " + credits + ", Prerequisites: ";
 
+        //Add prereqs only if there are any to the string
         if (prerequisiteCodes.size() > 0) {
             adminCourseString = adminCourseString + prerequisiteCodes.get(0);
 

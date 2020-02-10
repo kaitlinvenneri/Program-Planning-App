@@ -49,7 +49,7 @@ public class UploadCoursesMenuOption implements MenuOption {
     @Override
     public void handleMenuOption() {
         InputHandler inputHandler = new InputHandler();
-        FileParser courseFileParser = new CourseFileParser();
+        CourseFileParser courseFileParser = new CourseFileParser();
         String filename;
         ArrayList<Course> courses;
 
@@ -57,11 +57,17 @@ public class UploadCoursesMenuOption implements MenuOption {
         System.out.println("The file is assumed to be in the resources directory.");
         System.out.println("For instance for courselist.csv, only enter \"courselist.csv\":");
         filename = inputHandler.getFilename();
-        courses = courseFileParser.parseFile(filename);
+        try {
+            courses = courseFileParser.parseFile(filename);
 
-        System.out.println("You have input the following courses: ");
-        for (Course course : courses) {
-            System.out.println(course.toString());
+            System.out.println("You have input the following courses: ");
+            for (Course course : courses) {
+                System.out.println(course.toString());
+            }
+        } catch (Exception e) {
+            System.out.println("The filename you provided either does not exist, "
+                    + "or contains an invalid file of courses.");
+            handleMenuOption();
         }
     }
 

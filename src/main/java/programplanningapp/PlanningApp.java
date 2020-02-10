@@ -21,7 +21,7 @@ public class PlanningApp {
      *  @return main menu
      */
     public Menu createMainMenu() {
-        mainMenu = new Menu();
+        mainMenu = new Menu("This is the main menu");
         MenuOption userOption = new UserMenuOption("Act as user");
         mainMenu.addOption(userOption);
         MenuOption adminOption = new AdminMenuOption("Act as administrator");
