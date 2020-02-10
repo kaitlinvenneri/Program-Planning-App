@@ -1,7 +1,18 @@
 plugins {
     id 'checkstyle'
+    id 'application'
 }
 apply plugin: 'java'
+ext {
+    javaMainClass = "programplanningapp.PlanningApp"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+run{
+    standardInput = System.in
+}
 
 sourceCompatibility = 1.11
 targetCompatibility = 1.11
@@ -17,3 +28,4 @@ dependencies {
 checkstyle {
     toolVersion = "8.26"
 }
+
