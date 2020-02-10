@@ -49,7 +49,7 @@ public class UploadCoursesMenuOption implements MenuOption {
     @Override
     public void handleMenuOption() {
         InputHandler inputHandler = new InputHandler();
-        FileParser courseFileParser = new CourseFileParser();
+        CourseFileParser courseFileParser = new CourseFileParser();
         String filename;
         ArrayList<Course> courses;
 

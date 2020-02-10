@@ -4,14 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CourseFileParser implements  FileParser {
+public class CourseFileParser {
     /**
      * Handle the parsing of the transcript file.
      *
      * @param filename The name of the file.
      * @return The parsed collection of courses
      */
-    @Override
     public ArrayList<Course> parseFile(String filename) {
         Scanner scanner = null;
         String oneLine;
