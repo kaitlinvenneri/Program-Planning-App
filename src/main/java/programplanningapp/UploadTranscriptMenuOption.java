@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class UploadTranscriptMenuOption implements MenuOption {
     private int value;
     private String description;
+    private Menu userSubMenu;
+    private Student student;
 
     /**
      * Create the UploadTranscriptMenuOption and initialize its description.
@@ -49,10 +51,10 @@ public class UploadTranscriptMenuOption implements MenuOption {
     @Override
     public void handleMenuOption() {
         InputHandler inputHandler = new InputHandler();
-        FileParser transcriptParser = new TranscriptFileParser();
+        TranscriptFileParser transcriptParser = new TranscriptFileParser();
         String filename;
-        ArrayList<Course> courses;
-        Student student = new Student();
+        ArrayList<CourseAttempt> courses;
+        student = new Student();
 
         System.out.println("Please enter the name of the file containing the transcript");
         System.out.println("The file is assumed to be in the resources directory.");
@@ -65,7 +67,22 @@ public class UploadTranscriptMenuOption implements MenuOption {
 //            System.out.println(course.toString());
 //        }
 
-        System.out.println("You have " + student.getCoursesOnTranscript().size() + " courses on your transcript.");
+        System.out.println("You have " + student.getCoursesOnTranscript().size() + " courses on your transcript.\n");
+
+        createUserSubMenu();
+        System.out.print(userSubMenu.toString());
+
+        int command = inputHandler.getCommand();
+        inputHandler.processCommand(userSubMenu, command);
+    }
+
+    /**
+     * Create the submenu of options the user can choose from.
+     */
+    private void createUserSubMenu() {
+        userSubMenu = new Menu();
+        MenuOption transcriptSummary = new TranscriptSummaryMenuOption("Get Transcript Summary", student);
+        userSubMenu.addOption(transcriptSummary);
     }
 
     /**
