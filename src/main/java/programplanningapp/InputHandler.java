@@ -19,7 +19,10 @@ public class InputHandler {
         System.out.println("> ");
         Scanner scanner = new Scanner(System.in);
         String filename;
-        filename = "./src/main/resources/" + scanner.nextLine();
+        String separator = System.getProperty("file.separator");
+//        filename = "./src/main/resources/" + scanner.nextLine();
+        filename = "." + separator + "src" + separator + "main"
+                + separator + "resources" + separator + scanner.nextLine();
 
         return filename;
     }

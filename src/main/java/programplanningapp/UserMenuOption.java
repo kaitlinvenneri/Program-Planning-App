@@ -62,6 +62,8 @@ public class UserMenuOption implements MenuOption {
         userMenu = new Menu("You have reached the Student menu");
         MenuOption uploadTranscript = new UploadTranscriptMenuOption("Upload Transcript");
         userMenu.addOption(uploadTranscript);
+        MenuOption quitOption = new QuitMenuOption("Quit");
+        userMenu.addOption(quitOption);
     }
 
     /**
