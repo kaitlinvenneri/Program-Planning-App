@@ -34,6 +34,7 @@ public class InputHandler {
      * @return the users command converted to an int
      */
     public int getCommand() {
+        //TODO: Improve Error handling here too
         int command = 0;
         System.out.println("> ");
         Scanner scanner = new Scanner(System.in);
@@ -41,9 +42,11 @@ public class InputHandler {
         inputLine = scanner.nextLine();
 
         String[] parsedInput = inputLine.split(" ");
-        if (parsedInput.length > 1) {
-            //don't want more than one integer as a command
-            command = -1;
+        if (parsedInput.length == 0 || parsedInput.length > 1) {
+            //don't want more than one integer as a command, or none
+            command = 0;
+        } else if (inputLine == null || inputLine.isEmpty()) {
+            command = 0;
         } else {
             boolean nonDigit = false;
             //check for null and string length of 0?
@@ -54,7 +57,7 @@ public class InputHandler {
             }
 
             if (nonDigit) {
-                command = -1;
+                command = 0;
             } else {
                 command = Integer.parseInt(inputLine);
             }
@@ -76,9 +79,9 @@ public class InputHandler {
             option = menu.getMenuOptionByValue(command);
             option.handleMenuOption();
         } else {
+            //TODO: Add Error handling in a better way
+            //At the moment, the program just ends if not provided a valid input
             System.out.println("\n" + menu.getNonOptionMessage());
-            System.out.println(menu.toString());
-            System.out.print(menu.toString());
         }
     }
 }

@@ -40,7 +40,7 @@ public class Menu {
      */
     public boolean hasOption(int option) {
         //menu options start at 1
-        if (option >= 0 && option <= menuOptions.size()) {
+        if (option > 0 && option <= menuOptions.size()) {
             return true;
         }
         return false;
