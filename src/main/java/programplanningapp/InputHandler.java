@@ -73,7 +73,8 @@ public class InputHandler {
             option = menu.getMenuOptionByValue(command);
             option.handleMenuOption();
         } else {
-            System.out.println("\n" + menu.nonOptionMessage());
+            System.out.println("\n" + menu.getNonOptionMessage());
+            System.out.println(menu.toString());
             System.out.print(menu.toString());
         }
     }

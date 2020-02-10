@@ -80,7 +80,7 @@ public class UploadTranscriptMenuOption implements MenuOption {
      * Create the submenu of options the user can choose from.
      */
     private void createUserSubMenu() {
-        userSubMenu = new Menu();
+        userSubMenu = new Menu("Since you have uploaded a transcript, you may now choose from the following options:");
         MenuOption transcriptSummary = new TranscriptSummaryMenuOption("Get Transcript Summary", student);
         userSubMenu.addOption(transcriptSummary);
     }

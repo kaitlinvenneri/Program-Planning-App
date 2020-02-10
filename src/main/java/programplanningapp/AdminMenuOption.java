@@ -60,7 +60,7 @@ public class AdminMenuOption implements MenuOption {
      * Create the menu of options the administrator can choose from.
      */
     private void createAdminMenu() {
-        adminMenu = new Menu();
+        adminMenu = new Menu("You have reached the administrator menu.");
         MenuOption uploadCourses = new UploadCoursesMenuOption("Upload File Containing Courses");
         adminMenu.addOption(uploadCourses);
     }

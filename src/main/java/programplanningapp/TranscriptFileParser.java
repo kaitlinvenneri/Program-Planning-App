@@ -23,7 +23,6 @@ public class TranscriptFileParser {
                 oneLine = scanner.nextLine();
                 courseAttempt = parseLineIntoCourseAttempt(oneLine);
                 coursesOnTranscript.add(courseAttempt);
-                //System.out.println(oneLine);
             }
             scanner.close();
         } catch (Exception e) {
