@@ -9,14 +9,14 @@ public class CourseFileParser {
      * Handle the parsing of the course list file.
      *
      * @param filename The name of the file.
-     * @return The parsed collection of courses
+     * @return The parsed collection of admin courses
      * @throws Exception Either file IO exception, or invalid file type exception
      */
-    public ArrayList<Course> parseFile(String filename) throws Exception {
+    public ArrayList<AdminCourse> parseFile(String filename) throws Exception {
         Scanner scanner = null;
         String oneLine;
         AdminCourse course;
-        ArrayList<Course> coursesToUpload = new ArrayList<>();
+        ArrayList<AdminCourse> coursesToUpload = new ArrayList<>();
 
         try {
             scanner = new Scanner(new File(filename));

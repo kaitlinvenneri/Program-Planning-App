@@ -22,6 +22,36 @@ public class AdminCourse extends Course {
         prerequisiteCodes = coursePrereqs;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public double getCredits() {
+        return credits;
+    }
+
+    public ArrayList<String> getPrerequisiteCodes() {
+        return prerequisiteCodes;
+    }
+
+    public void setName(String courseName) {
+        name = courseName;
+    }
+
+    public void setCredits(double courseCredits) {
+        credits = courseCredits;
+    }
+
+    public void setPrerequisiteCodes(ArrayList<String> prereqCodes) {
+        prerequisiteCodes = prereqCodes;
+    }
+
+    public void updateCourseInfo(AdminCourse updatedCourse) {
+        name = updatedCourse.getName();
+        credits = updatedCourse.getCredits();
+        prerequisiteCodes = updatedCourse.getPrerequisiteCodes();
+    }
+
     /**
      * Making a human readable toString() for the admin course.
      */

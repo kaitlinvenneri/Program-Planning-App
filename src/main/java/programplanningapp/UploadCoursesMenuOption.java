@@ -51,18 +51,36 @@ public class UploadCoursesMenuOption implements MenuOption {
         InputHandler inputHandler = new InputHandler();
         CourseFileParser courseFileParser = new CourseFileParser();
         String filename;
-        ArrayList<Course> courses;
+        ArrayList<AdminCourse> coursesToAdd;
+        ArrayList<AdminCourse> overwrittenCourses;
 
         System.out.println("Please enter the name of the file containing the courses to be added");
         System.out.println("The file is assumed to be in the resources directory.");
         System.out.println("For instance for courselist.csv, only enter \"courselist.csv\":");
+        System.out.println("Note that if any courses to be added already exist in the system, "
+                + "they will be overwritten");
         filename = inputHandler.getFilename();
         try {
-            courses = courseFileParser.parseFile(filename);
+            coursesToAdd = courseFileParser.parseFile(filename);
 
-            System.out.println("You have input the following courses: ");
-            for (Course course : courses) {
-                System.out.println(course.toString());
+            overwrittenCourses = Utility.updateStoredAdminCourses(coursesToAdd);
+
+            if (overwrittenCourses.size() == coursesToAdd.size()) {
+                System.out.println("\nNo new courses were added.");
+            } else {
+                System.out.println("You have input the following courses: ");
+                for (Course course : coursesToAdd) {
+                    System.out.println(course.toString());
+                }
+            }
+
+            if (overwrittenCourses.size() > 0) {
+                System.out.println("\nThe following courses have been overwritten with the following data: ");
+                for (Course course : overwrittenCourses) {
+                    System.out.println(course.toString());
+                }
+            } else {
+                System.out.println("\nNo courses were overwritten.");
             }
         } catch (Exception e) {
             System.out.println("The filename you provided either does not exist, "
