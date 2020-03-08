@@ -16,4 +16,22 @@ public class Program {
         name = programName;
         requiredCoursesByName = requiredCourses;
     }
+
+    /**
+     * Get the name of the program.
+     *
+     * @return The program name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Get the list of required courses by name.
+     *
+     * @return A collection of names of courses required for the program.
+     */
+    public ArrayList<String> getRequiredCoursesByName() {
+        return requiredCoursesByName;
+    }
 }

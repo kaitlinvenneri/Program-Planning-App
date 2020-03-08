@@ -63,6 +63,8 @@ public class AdminMenuOption implements MenuOption {
         adminMenu = new Menu("You have reached the administrator menu.");
         MenuOption uploadCourses = new UploadCoursesMenuOption("Upload File Containing Courses");
         adminMenu.addOption(uploadCourses);
+        MenuOption uploadProgram = new UploadProgramRequirementsMenuOption("Upload File Containing Program Requirements");
+        adminMenu.addOption(uploadProgram);
         MenuOption quitOption = new QuitMenuOption("Quit");
         adminMenu.addOption(quitOption);
     }
