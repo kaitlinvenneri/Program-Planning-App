@@ -3,6 +3,7 @@ package programplanningapp;
 import java.util.ArrayList;
 
 public class Student {
+    private Program program;
     private ArrayList<CourseAttempt> coursesOnTranscript;
 
     /**
@@ -28,4 +29,13 @@ public class Student {
     public ArrayList<CourseAttempt> getCoursesOnTranscript() {
         return coursesOnTranscript;
     }
+
+    public void setProgram(Program prog) {
+        program = prog;
+    }
+
+    public Program getProgram() {
+        return program;
+    }
+
 }
