@@ -23,6 +23,6 @@ public class CourseTest {
      */
     @Test
     public void testGetCode() {
-        courseOne.getCode();
+        assertEquals(courseOne.getCode(), courseOneCourseCode);
     }
 }
