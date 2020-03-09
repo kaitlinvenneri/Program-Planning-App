@@ -3,7 +3,7 @@ package programplanningapp;
 //import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class DataUtilityTest {
 
@@ -14,8 +14,8 @@ public class DataUtilityTest {
 
     /** @noinspection checkstyle:MissingJavadocMethod*/
     @Test
-    public void getSavedCoursesFilename() {
-        assertTrue(1 == 2);
+    public void testGetSavedCoursesFilename() {
+        assertEquals(DataUtility.getSavedCoursesFilename(), "test");
     }
 
     /** @noinspection checkstyle:MissingJavadocMethod*/
