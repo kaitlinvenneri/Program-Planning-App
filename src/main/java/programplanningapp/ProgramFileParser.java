@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class ProgramFileParser {
     /**
-     * Handle the parsing of the course list file.
+     * Handle the parsing of the program file.
      *
      * @param filename The name of the file.
-     * @return The parsed collection of courses
+     * @return The parsed Program
      * @throws Exception Either file IO exception, or invalid file type exception
      */
     public Program parseFile(String filename) throws Exception {
@@ -20,7 +20,7 @@ public class ProgramFileParser {
 
         try {
             scanner = new Scanner(new File(filename));
-            //try to convert each line of file to a course
+            //generate fileContents
             while (scanner.hasNext()) {
                 oneLine = scanner.nextLine();
                 fileContents = fileContents + oneLine;
@@ -65,7 +65,6 @@ public class ProgramFileParser {
 
             programName = parsedLine[0];
             for (int i = 1; i < parsedLine.length; i++) {
-                //System.out.println(parsedLine[i]);
                 requiredCourses.add(parsedLine[i]);
             }
 

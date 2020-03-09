@@ -6,7 +6,16 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Utility {
+public final class DataUtility {
+    private DataUtility() {
+        //not called
+    }
+
+    /**
+     * Get the filename of where the admin courses are currently saved.
+     *
+     * @return name of file containing saved courses.
+     */
     public static String getSavedCoursesFilename() {
         String separator = System.getProperty("file.separator");
 
@@ -16,6 +25,11 @@ public class Utility {
         return filename;
     }
 
+    /**
+     * Get the stored admin courses.
+     *
+     * @return stored admin courses.
+     */
     public static ArrayList<AdminCourse> getStoredAdminCourses() {
         ArrayList<AdminCourse> storedAdminCourses = new ArrayList<>();
         CourseFileParser courseFileParser = new CourseFileParser();
@@ -38,6 +52,13 @@ public class Utility {
         return storedAdminCourses;
     }
 
+    /**
+     * Update the stored admin courses.
+     * If an admin course has already been stored, it will be overwritten.
+     *
+     * @param coursesToAdd admin courses to newly store
+     * @return admin courses that are overwritten.
+     */
     public static ArrayList<AdminCourse> updateStoredAdminCourses(ArrayList<AdminCourse> coursesToAdd) {
         ArrayList<AdminCourse> overwrittenCourses = new ArrayList<>();
         ArrayList<AdminCourse> savedCourses = getStoredAdminCourses();
@@ -63,6 +84,11 @@ public class Utility {
         return overwrittenCourses;
     }
 
+    /**
+     * Write courses to be saved to the file where they are stored.
+     *
+     * @param coursesToWrite courses to save
+     */
     public static void writeCoursesToFile(ArrayList<AdminCourse> coursesToWrite) {
         String courseLine;
         PrintWriter myWriter = null;
@@ -93,6 +119,11 @@ public class Utility {
         }
     }
 
+    /**
+     * Get the name of the directory where the programs are currently saved.
+     *
+     * @return name of directory containing saved programs.
+     */
     public static String getSavedProgramsDirectory() {
         String separator = System.getProperty("file.separator");
 
@@ -102,6 +133,11 @@ public class Utility {
         return folderName;
     }
 
+    /**
+     * Get the stored programs.
+     *
+     * @return stored programs.
+     */
     public static ArrayList<Program> getStoredPrograms() {
         ArrayList<Program> storedPrograms = new ArrayList<>();
         ProgramFileParser programFileParser = new ProgramFileParser();
@@ -133,6 +169,13 @@ public class Utility {
         return storedPrograms;
     }
 
+    /**
+     * Update the stored programs.
+     * If a program has already been stored, it will be overwritten.
+     *
+     * @param programToAdd program to newly store
+     * @return programs that are overwritten.
+     */
     public static ArrayList<Program> updateStoredPrograms(Program programToAdd) {
         ArrayList<Program> overwrittenPrograms = new ArrayList<>();
         ArrayList<Program> savedPrograms = getStoredPrograms();
@@ -155,19 +198,17 @@ public class Utility {
         return overwrittenPrograms;
     }
 
+    /**
+     * Write programs to be saved to the files where they are stored.
+     *
+     * @param programsToWrite programs to save
+     */
     public static void writeProgramsToFile(ArrayList<Program> programsToWrite) {
         String programLine;
         PrintWriter myWriter = null;
 
         try {
             for (Program program : programsToWrite) {
-                //File fileToSaveTo = new File(getProgramFilename(program.getName()));
-//                if (fileToSaveTo.createNewFile()) {
-//                    System.out.println("File created: " + fileToSaveTo.getName());
-//                } else {
-//                    System.out.println("File already exists.");
-//                }
-
                 myWriter = new PrintWriter(new FileWriter(new File(getProgramFilename(program.getName()))));
 
                 programLine = "";
@@ -191,6 +232,12 @@ public class Utility {
         }
     }
 
+    /**
+     * Get the name of the file that corresponds with the program.
+     *
+     * @param programName name of program to get filename for
+     * @return filename of program in storage
+     */
     public static String getProgramFilename(String programName) {
         String separator = System.getProperty("file.separator");
         return getSavedProgramsDirectory() + separator + programName + ".csv";

@@ -9,7 +9,8 @@ public class ProgramMenuOption implements MenuOption {
     /**
      * Create the ProgramMenuOption and initialize its description.
      *
-     * @param program The program associated with the menu option.
+     * @param prog The program associated with the menu option.
+     * @param aStudent The student choosing a program
      */
     public ProgramMenuOption(Program prog, Student aStudent) {
         program = prog;
@@ -46,7 +47,7 @@ public class ProgramMenuOption implements MenuOption {
     }
 
     /**
-     * Handle the user selecting to upload a transcript.
+     * Handle the user selecting a program.
      */
     @Override
     public void handleMenuOption() {

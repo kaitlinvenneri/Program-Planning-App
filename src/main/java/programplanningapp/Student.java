@@ -30,10 +30,20 @@ public class Student {
         return coursesOnTranscript;
     }
 
+    /**
+     * Set the program the student is enrolled in.
+     *
+     * @param prog the student's program.
+     */
     public void setProgram(Program prog) {
         program = prog;
     }
 
+    /**
+     * Get the program the student is enrolled in.
+     *
+     * @return the student's program.
+     */
     public Program getProgram() {
         return program;
     }

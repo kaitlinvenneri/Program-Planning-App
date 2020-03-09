@@ -2,16 +2,16 @@ package programplanningapp;
 
 import java.util.ArrayList;
 
-public class UploadProgramRequirementsMenuOption implements MenuOption {
+public class UploadProgramMenuOption implements MenuOption {
     private int value;
     private String description;
 
     /**
-     * Create the UploadProgramRequirementsMenuOption and initialize its description.
+     * Create the UploadProgramMenuOption and initialize its description.
      *
      * @param desc The description to be assigned.
      */
-    public UploadProgramRequirementsMenuOption(String desc) {
+    public UploadProgramMenuOption(String desc) {
         description = desc;
     }
 
@@ -61,7 +61,8 @@ public class UploadProgramRequirementsMenuOption implements MenuOption {
         try {
             program = programFileParser.parseFile(filename);
 
-            overwrittenPrograms = Utility.updateStoredPrograms(program);
+            //update stored data regarding programs and get overwritten programs
+            overwrittenPrograms = DataUtility.updateStoredPrograms(program);
 
             if (overwrittenPrograms.size() > 0) {
                 System.out.println("\nNo new programs were added.");

@@ -56,7 +56,6 @@ public class TranscriptSummaryMenuOption implements MenuOption {
         ArrayList<CourseAttempt> inProgressCourses = new ArrayList<>();
         ArrayList<CourseAttempt> plannedCourses = new ArrayList<>();
 
-
         for (CourseAttempt course : courses) {
             if (course.getStatus() == Status.COMPLETE) {
                 completedCourses.add(course);

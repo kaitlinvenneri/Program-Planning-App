@@ -8,9 +8,10 @@ public class ProgramStatusMenuOption implements MenuOption {
     private Student student;
 
     /**
-     * Create the ProgramMenuOption and initialize its description.
+     * Create the ProgramStatusMenuOption and initialize.
      *
-     * @param program The program associated with the menu option.
+     * @param desc The description to be assigned.
+     * @param aStudent The student to get a program status for
      */
     public ProgramStatusMenuOption(String desc, Student aStudent) {
         description = desc;
@@ -46,7 +47,7 @@ public class ProgramStatusMenuOption implements MenuOption {
     }
 
     /**
-     * Handle the user selecting to upload a transcript.
+     * Handle the user selecting to get a program status.
      */
     @Override
     public void handleMenuOption() {
@@ -55,10 +56,13 @@ public class ProgramStatusMenuOption implements MenuOption {
         ArrayList<String> courseCodesNeeded = new ArrayList<>();
         Boolean courseCompleted;
 
+        //check which courses have been completed and passed (grade of 50 or above)
         for (String courseCode : program.getRequiredCoursesByName()) {
             courseCompleted = false;
             for (CourseAttempt courseAttempt : student.getCoursesOnTranscript()) {
-                if (courseAttempt.getCode().equals(courseCode) && courseAttempt.getStatus() == Status.COMPLETE && courseAttempt.getGrade() > 49) {
+                if (courseAttempt.getCode().equals(courseCode)
+                        && courseAttempt.getStatus() == Status.COMPLETE
+                        && courseAttempt.getGrade() > 49) {
                     courseCompleted = true;
                     passedCourseCodes.add(courseCode);
                 }
