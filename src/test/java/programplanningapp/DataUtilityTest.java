@@ -20,7 +20,7 @@ public class DataUtilityTest {
         String filename = "." + separator + "src" + separator + "main"
                 + separator + "resources" + separator + "savedAdminCourses.csv";
 
-        assertEquals(DataUtility.getSavedCoursesFilename(), filename);
+        assertEquals(DataUtility.getSavedCoursesFilename(), "hi");
     }
 
     /** @noinspection checkstyle:MissingJavadocMethod*/
