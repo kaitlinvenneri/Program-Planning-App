@@ -10,7 +10,7 @@ public class CourseTest {
     private String courseOneCourseCode;
 
     /**
-     *
+     * Setup member variables for tests.
      */
     @Before
     public void setUp() {
@@ -19,7 +19,7 @@ public class CourseTest {
     }
 
     /**
-     *
+     * Test getting the course code of a course.
      */
     @Test
     public void testGetCode() {
