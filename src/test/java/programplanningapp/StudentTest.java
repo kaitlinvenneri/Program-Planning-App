@@ -24,7 +24,8 @@ public class StudentTest {
         String courseAttemptOneCode = "CIS*4450";
         Status courseAttemptOneStatus = Status.PLANNED;
         String courseAttemptOneSemester = "W20";
-        CourseAttempt courseAttemptOne = new CourseAttempt(courseAttemptOneCode, courseAttemptOneStatus, courseAttemptOneSemester);
+        CourseAttempt courseAttemptOne = new CourseAttempt(courseAttemptOneCode, courseAttemptOneStatus,
+                courseAttemptOneSemester);
         coursesOnTranscript.add(courseAttemptOne);
         student = new Student();
     }
