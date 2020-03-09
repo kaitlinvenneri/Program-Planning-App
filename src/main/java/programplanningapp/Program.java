@@ -34,4 +34,8 @@ public class Program {
     public ArrayList<String> getRequiredCoursesByName() {
         return requiredCoursesByName;
     }
+
+    public void setRequiredCoursesByName(ArrayList<String> requiredCourses) {
+        this.requiredCoursesByName = requiredCourses;
+    }
 }

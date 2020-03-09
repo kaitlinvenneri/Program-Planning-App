@@ -1,5 +1,7 @@
 package programplanningapp;
 
+import java.util.ArrayList;
+
 public class UploadProgramRequirementsMenuOption implements MenuOption {
     private int value;
     private String description;
@@ -50,6 +52,7 @@ public class UploadProgramRequirementsMenuOption implements MenuOption {
         ProgramFileParser programFileParser = new ProgramFileParser();
         String filename;
         Program program;
+        ArrayList<Program> overwrittenPrograms;
 
         System.out.println("Please enter the name of the file containing the program to be added");
         System.out.println("The file is assumed to be in the resources directory.");
@@ -58,8 +61,16 @@ public class UploadProgramRequirementsMenuOption implements MenuOption {
         try {
             program = programFileParser.parseFile(filename);
 
-            System.out.println("You have input the following program:\n");
-            System.out.println("Program name: " + program.getName() + "\n");
+            overwrittenPrograms = Utility.updateStoredPrograms(program);
+
+            if (overwrittenPrograms.size() > 0) {
+                System.out.println("\nNo new programs were added.");
+                System.out.println("\nThe following progam has been overwritten with the following data: ");
+            } else {
+                System.out.println("You have input the following program: ");
+            }
+
+            System.out.println("\nProgram name: " + program.getName() + "\n");
             System.out.println("Required Courses: ");
             for (String courseName : program.getRequiredCoursesByName()) {
                 System.out.println(courseName);
