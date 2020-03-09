@@ -1,6 +1,32 @@
 README
 ========
 
+### Milestone 2
+
+**Liskov Substitution Principle Analysis**
+
+One good example of where I used the Liskov Substitution Principle is with regards to the Course class.
+There are two types that inherit Course: AdminCourse, and CourseAttempt.
+Both of these types increase the behaviour of Course, but the base type still holds and is not violated in any way.
+Anywhere where the base class Course is used could use an AdminCourse or CourseAttempt and be functionally the same.
+
+**Interface Segregation Analysis**
+
+I used interface segregation with regards to my MenuOption interface.
+While there are many methods in this interface, every one of them is used by the classes that implement the MenuOption interface and are necessary.
+For this reason, interface segregation holds well here.
+
+**A Comment About Unit Test Coverage**
+
+While it is hard to eyeball the amount of unit test coverage that I have at the present in my project, I do think I have a good start of unit tests.
+Other than Classes that implement the MenuOption interface, and some Utility type classes, pretty well all other classes are unit tested to a high degree.
+I intend to improve upon this unit test coverage and add more testing, however I am also intending to improve my menu navigation, which could result in 
+requiring different types of testing, which is why the classes that implement MenuOption currently aren't tested specifically.
+That being said, much of the functionality used in creating and calling other classes from the classes that implement MenuOption 
+is tested indirectly via the unit tests I have created thus far.
+
+========
+
 ### Milestone 1
 
 **User Stories & Acceptance Criteria**
