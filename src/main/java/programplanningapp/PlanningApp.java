@@ -10,10 +10,10 @@ public class PlanningApp {
      */
     public Menu createMainMenu() {
         mainMenu = new Menu("This is the main menu");
-        MenuOption userOption = new UserMenuOption("Act as user");
-        mainMenu.addOption(userOption);
         MenuOption adminOption = new AdminMenuOption("Act as administrator");
         mainMenu.addOption(adminOption);
+        MenuOption userOption = new UserMenuOption("Act as user");
+        mainMenu.addOption(userOption);
         MenuOption quitOption = new QuitMenuOption("Quit");
         mainMenu.addOption(quitOption);
         return mainMenu;
