@@ -3,7 +3,7 @@ package programplanningapp;
 //import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class DataUtilityTest {
 
@@ -15,7 +15,12 @@ public class DataUtilityTest {
     /** @noinspection checkstyle:MissingJavadocMethod*/
     @Test
     public void testGetSavedCoursesFilename() {
-        assertEquals(DataUtility.getSavedCoursesFilename(), "test");
+        String separator = System.getProperty("file.separator");
+
+        String filename = "." + separator + "src" + separator + "main"
+                + separator + "resources" + separator + "savedAdminCourses.csv";
+
+        assertEquals(DataUtility.getSavedCoursesFilename(), filename);
     }
 
     /** @noinspection checkstyle:MissingJavadocMethod*/
