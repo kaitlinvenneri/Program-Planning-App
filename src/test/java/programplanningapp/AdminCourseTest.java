@@ -17,9 +17,8 @@ public class AdminCourseTest {
     private ArrayList<String> coursePrereqs;
     private static final double DELTA = 1e-15;
 
-
     /**
-     *
+     * Setup member variables for tests.
      */
     @Before
     public void setUp() {
@@ -34,7 +33,7 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test getName().
      */
     @Test
     public void testGetName() {
@@ -42,7 +41,7 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test getCredits().
      */
     @Test
     public void testGetCredits() {
@@ -50,7 +49,7 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test getPrerequisiteCodes().
      */
     @Test
     public void testGetPrerequisiteCodes() {
@@ -60,7 +59,7 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test setName().
      */
     @Test
     public void testSetName() {
@@ -70,7 +69,7 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test setCredits().
      */
     @Test
     public void testSetCredits() {
@@ -80,7 +79,7 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test setPrerequisiteCodes().
      */
     @Test
     public void testSetPrerequisiteCodes() {
@@ -89,14 +88,13 @@ public class AdminCourseTest {
     }
 
     /**
-     *
+     * Test updateCourseInfo().
      */
     @Test
     public void testUpdateCourseInfo() {
-        double newCourseCredits = 0.5;
-        String newCourseName = "Advanced OOP";
+        double newCourseCredits = 0.75;
+        String newCourseName = "Judi's Class";
         ArrayList<String> newCoursePrereqs = new ArrayList<>();
-        newCoursePrereqs = new ArrayList<>();
         newCoursePrereqs.add("CIS*2500");
         AdminCourse newAdminCourse = new AdminCourse(courseCode, newCourseCredits, newCourseName, newCoursePrereqs);
 
@@ -105,13 +103,5 @@ public class AdminCourseTest {
         assertEquals(adminCourseWithPrereqs.getName(), newCourseName);
         assertEquals(adminCourseWithPrereqs.getCredits(), newCourseCredits, DELTA);
         assertEquals(adminCourseWithPrereqs.getPrerequisiteCodes(), newCoursePrereqs);
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void testToString() {
-
     }
 }
