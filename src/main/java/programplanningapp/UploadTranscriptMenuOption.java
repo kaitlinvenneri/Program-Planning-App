@@ -6,6 +6,7 @@ public class UploadTranscriptMenuOption implements MenuOption {
     private int value;
     private String description;
     private Menu userSubMenu;
+    private Menu programOptionsMenu;
     private Student student;
 
     /**
@@ -66,6 +67,8 @@ public class UploadTranscriptMenuOption implements MenuOption {
             System.out.println("You have " + student.getCoursesOnTranscript().size()
                     + " courses on your transcript.\n");
 
+            handleUserSelectingProgram();
+
             createUserSubMenu();
             System.out.print(userSubMenu.toString());
 
@@ -78,11 +81,34 @@ public class UploadTranscriptMenuOption implements MenuOption {
         }
     }
 
+    private void handleUserSelectingProgram() {
+        InputHandler inputHandler = new InputHandler();
+
+        createProgramOptionsMenu();
+
+        System.out.print(programOptionsMenu.toString());
+
+        int command = inputHandler.getCommand();
+        inputHandler.processCommand(programOptionsMenu, command);
+    }
+
+    private void createProgramOptionsMenu() {
+        programOptionsMenu = new Menu("Please choose which program you are enrolled in:");
+
+        for (Program program : Utility.getStoredPrograms()) {
+            MenuOption programOption = new ProgramMenuOption(program, student);
+            programOptionsMenu.addOption(programOption);
+        }
+        MenuOption quitOption = new QuitMenuOption("Quit");
+        programOptionsMenu.addOption(quitOption);
+    }
+
     /**
      * Create the submenu of options the user can choose from.
      */
     private void createUserSubMenu() {
-        userSubMenu = new Menu("Since you have uploaded a transcript, you may now choose from the following options:");
+        userSubMenu = new Menu("Since you have uploaded a transcript and selected your program, "
+                + "you may now choose from the following options:");
         MenuOption transcriptSummary = new TranscriptSummaryMenuOption("Get Transcript Summary", student);
         userSubMenu.addOption(transcriptSummary);
         MenuOption quitOption = new QuitMenuOption("Quit");

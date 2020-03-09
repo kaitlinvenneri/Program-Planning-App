@@ -181,6 +181,7 @@ public class Utility {
                     }
                 }
                 myWriter.println(programLine);
+                myWriter.close();
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
