@@ -1,7 +1,5 @@
 package programplanningapp;
 
-import java.util.ArrayList;
-
 public class ProgramMenuOption implements MenuOption {
     private int value;
     private String description;

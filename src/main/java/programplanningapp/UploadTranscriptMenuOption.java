@@ -111,6 +111,8 @@ public class UploadTranscriptMenuOption implements MenuOption {
                 + "you may now choose from the following options:");
         MenuOption transcriptSummary = new TranscriptSummaryMenuOption("Get Transcript Summary", student);
         userSubMenu.addOption(transcriptSummary);
+        MenuOption programStatus = new ProgramStatusMenuOption("Get Program Status", student);
+        userSubMenu.addOption(programStatus);
         MenuOption quitOption = new QuitMenuOption("Quit");
         userSubMenu.addOption(quitOption);
     }
