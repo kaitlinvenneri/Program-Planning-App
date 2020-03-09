@@ -14,6 +14,16 @@ variables:
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
+lint:
+  stage: lint
+  script: gradle check
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build
+      - .gradle
+
 build:
   stage: build
   script: gradle --build-cache assemble
@@ -26,7 +36,7 @@ build:
 
 test:
   stage: test
-  script: gradle check
+  script: gradle test
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: pull
