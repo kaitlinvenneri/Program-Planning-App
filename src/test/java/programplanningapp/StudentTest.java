@@ -34,7 +34,7 @@ public class StudentTest {
      * Test setCoursesOnTranscript().
      */
     @Test
-    public void setCoursesOnTranscript() {
+    public void testSetCoursesOnTranscript() {
         student.setCoursesOnTranscript(coursesOnTranscript);
 
         assertEquals(student.getCoursesOnTranscript(), coursesOnTranscript);
@@ -44,7 +44,7 @@ public class StudentTest {
      * Test getCoursesOnTranscript().
      */
     @Test
-    public void getCoursesOnTranscript() {
+    public void testGetCoursesOnTranscript() {
         student.setCoursesOnTranscript(coursesOnTranscript);
 
         assertEquals(student.getCoursesOnTranscript(), coursesOnTranscript);
@@ -54,7 +54,7 @@ public class StudentTest {
      * Test setProgram().
      */
     @Test
-    public void setProgram() {
+    public void testSetProgram() {
         student.setProgram(program);
 
         assertEquals(student.getProgram(), program);
@@ -64,7 +64,7 @@ public class StudentTest {
      * Test getProgram().
      */
     @Test
-    public void getProgram() {
+    public void testGetProgram() {
         student.setProgram(program);
 
         assertEquals(student.getProgram(), program);
