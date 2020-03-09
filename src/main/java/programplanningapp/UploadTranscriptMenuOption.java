@@ -95,7 +95,7 @@ public class UploadTranscriptMenuOption implements MenuOption {
     private void createProgramOptionsMenu() {
         programOptionsMenu = new Menu("Please choose which program you are enrolled in:");
 
-        for (Program program : Utility.getStoredPrograms()) {
+        for (Program program : DataUtility.getStoredPrograms()) {
             MenuOption programOption = new ProgramMenuOption(program, student);
             programOptionsMenu.addOption(programOption);
         }

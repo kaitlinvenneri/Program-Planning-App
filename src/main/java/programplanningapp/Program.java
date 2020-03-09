@@ -35,6 +35,11 @@ public class Program {
         return requiredCoursesByName;
     }
 
+    /**
+     * Set the required courses for a program.
+     *
+     * @param requiredCourses Course codes for required courses.
+     */
     public void setRequiredCoursesByName(ArrayList<String> requiredCourses) {
         this.requiredCoursesByName = requiredCourses;
     }

@@ -63,7 +63,8 @@ public class UploadCoursesMenuOption implements MenuOption {
         try {
             coursesToAdd = courseFileParser.parseFile(filename);
 
-            overwrittenCourses = Utility.updateStoredAdminCourses(coursesToAdd);
+            //update stored data regarding courses and get overwritten courses
+            overwrittenCourses = DataUtility.updateStoredAdminCourses(coursesToAdd);
 
             if (overwrittenCourses.size() == coursesToAdd.size()) {
                 System.out.println("\nNo new courses were added.");

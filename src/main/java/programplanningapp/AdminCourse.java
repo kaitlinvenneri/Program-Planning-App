@@ -22,30 +22,65 @@ public class AdminCourse extends Course {
         prerequisiteCodes = coursePrereqs;
     }
 
+    /**
+     * Get the course name of the admin course.
+     *
+     * @return The admin course name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get the number of credits associated with the admin course.
+     *
+     * @return The number of credits for the admin course.
+     */
     public double getCredits() {
         return credits;
     }
 
+    /**
+     * Get the prerequisites required for the admin course.
+     *
+     * @return The prerequisites for the admin course.
+     */
     public ArrayList<String> getPrerequisiteCodes() {
         return prerequisiteCodes;
     }
 
+    /**
+     * Set the name of the admin course.
+     *
+     * @param courseName The name to set.
+     */
     public void setName(String courseName) {
         name = courseName;
     }
 
+    /**
+     * Set the credits of the admin course.
+     *
+     * @param courseCredits The credits to set.
+     */
     public void setCredits(double courseCredits) {
         credits = courseCredits;
     }
 
+    /**
+     * Set the prerequisites required for the admin course.
+     *
+     * @param prereqCodes The course codes for the prerequisites to set.
+     */
     public void setPrerequisiteCodes(ArrayList<String> prereqCodes) {
         prerequisiteCodes = prereqCodes;
     }
 
+    /**
+     * Update the admin course fields based on an existing admin course.
+     *
+     * @param updatedCourse The admin course to get field information to update from.
+     */
     public void updateCourseInfo(AdminCourse updatedCourse) {
         name = updatedCourse.getName();
         credits = updatedCourse.getCredits();
