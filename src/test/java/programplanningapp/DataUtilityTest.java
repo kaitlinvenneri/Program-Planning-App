@@ -18,43 +18,43 @@ public class DataUtilityTest {
         assertTrue(1 == 2);
     }
 
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void getStoredAdminCourses() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void updateStoredAdminCourses() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void writeCoursesToFile() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void getSavedProgramsDirectory() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void getStoredPrograms() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void updateStoredPrograms() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void writeProgramsToFile() {
-    }
-
-    /** @noinspection checkstyle:MissingJavadocMethod*/
-    @Test
-    public void getProgramFilename() {
-    }
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void getStoredAdminCourses() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void updateStoredAdminCourses() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void writeCoursesToFile() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void getSavedProgramsDirectory() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void getStoredPrograms() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void updateStoredPrograms() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void writeProgramsToFile() {
+//    }
+//
+//    /** @noinspection checkstyle:MissingJavadocMethod*/
+//    @Test
+//    public void getProgramFilename() {
+//    }
 }
