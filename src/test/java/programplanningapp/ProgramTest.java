@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class ProgramTest {
     private Program program;
     private String name;
-    private ArrayList<String> requiredCoursesByName;
+    private ArrayList<String> requiredCoursesByCode;
 
     /**
      * Setup member variables for tests.
@@ -18,8 +18,8 @@ public class ProgramTest {
     @Before
     public void setUp() {
         name = "Comp Sci";
-        requiredCoursesByName = new ArrayList<>();
-        program = new Program(name, requiredCoursesByName);
+        requiredCoursesByCode = new ArrayList<>();
+        program = new Program(name, requiredCoursesByCode);
     }
 
     /**
@@ -31,22 +31,22 @@ public class ProgramTest {
     }
 
     /**
-     * Test getRequiredCoursesByName().
+     * Test getRequiredCoursesByCode().
      */
     @Test
-    public void testGetRequiredCoursesByName() {
-        assertEquals(program.getRequiredCoursesByName(), requiredCoursesByName);
+    public void testGetRequiredCoursesByCode() {
+        assertEquals(program.getRequiredCoursesByCode(), requiredCoursesByCode);
     }
 
     /**
-     * Test setRequiredCoursesByName().
+     * Test setRequiredCoursesByCode().
      */
     @Test
-    public void testSetRequiredCoursesByName() {
-        ArrayList<String> newRequiredCoursesByName = new ArrayList<>();
-        newRequiredCoursesByName.add("CIS*1300");
+    public void testSetRequiredCoursesByCode() {
+        ArrayList<String> newRequiredCoursesByCode = new ArrayList<>();
+        newRequiredCoursesByCode.add("CIS*1300");
 
-        program.setRequiredCoursesByName(newRequiredCoursesByName);
-        assertEquals(program.getRequiredCoursesByName(), newRequiredCoursesByName);
+        program.setRequiredCoursesByCode(newRequiredCoursesByCode);
+        assertEquals(program.getRequiredCoursesByCode(), newRequiredCoursesByCode);
     }
 }

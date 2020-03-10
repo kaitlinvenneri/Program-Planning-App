@@ -31,9 +31,9 @@ public class ProgramFileParserTest {
      */
     private void generateProgram() {
         String name = "Comp Sci";
-        ArrayList<String> requiredCoursesByName = new ArrayList<>();
-        requiredCoursesByName.add("CIS*4450");
-        programToWrite = new Program(name, requiredCoursesByName);
+        ArrayList<String> requiredCoursesByCode = new ArrayList<>();
+        requiredCoursesByCode.add("CIS*4450");
+        programToWrite = new Program(name, requiredCoursesByCode);
     }
 
     /**
@@ -54,10 +54,10 @@ public class ProgramFileParserTest {
             programLine = "";
             programLine = programLine + programToWrite.getName() + ",";
 
-            for (int i = 0; i < programToWrite.getRequiredCoursesByName().size(); i++) {
-                programLine = programLine + programToWrite.getRequiredCoursesByName().get(i);
+            for (int i = 0; i < programToWrite.getRequiredCoursesByCode().size(); i++) {
+                programLine = programLine + programToWrite.getRequiredCoursesByCode().get(i);
 
-                if (i + 1 < programToWrite.getRequiredCoursesByName().size()) {
+                if (i + 1 < programToWrite.getRequiredCoursesByCode().size()) {
                     programLine = programLine + ",";
                 }
             }
@@ -84,8 +84,8 @@ public class ProgramFileParserTest {
             equal = false;
         }
 
-        for (int i = 0; i < program1.getRequiredCoursesByName().size(); i++) {
-            if (!program1.getRequiredCoursesByName().get(i).equals(program2.getRequiredCoursesByName().get(i))) {
+        for (int i = 0; i < program1.getRequiredCoursesByCode().size(); i++) {
+            if (!program1.getRequiredCoursesByCode().get(i).equals(program2.getRequiredCoursesByCode().get(i))) {
                 equal = false;
             }
         }

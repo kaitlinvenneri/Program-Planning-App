@@ -60,7 +60,7 @@ public class ProgramStatusMenuOption implements MenuOption {
         Boolean courseCompleted;
 
         //check which courses have been completed and passed (grade of 50 or above)
-        for (String courseCode : program.getRequiredCoursesByName()) {
+        for (String courseCode : program.getRequiredCoursesByCode()) {
             courseCompleted = false;
             for (CourseAttempt courseAttempt : student.getCoursesOnTranscript()) {
                 if (courseAttempt.getCode().equals(courseCode)

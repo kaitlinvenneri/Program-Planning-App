@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Program {
     private String name;
-    private ArrayList<String> requiredCoursesByName;
+    private ArrayList<String> requiredCoursesByCode;
 
     /**
      * Create the Program and initialize name and required courses.
@@ -14,7 +14,7 @@ public class Program {
      */
     public Program(String programName, ArrayList<String> requiredCourses) {
         name = programName;
-        requiredCoursesByName = requiredCourses;
+        requiredCoursesByCode = requiredCourses;
     }
 
     /**
@@ -31,8 +31,8 @@ public class Program {
      *
      * @return A collection of names of courses required for the program.
      */
-    public ArrayList<String> getRequiredCoursesByName() {
-        return requiredCoursesByName;
+    public ArrayList<String> getRequiredCoursesByCode() {
+        return requiredCoursesByCode;
     }
 
     /**
@@ -40,7 +40,7 @@ public class Program {
      *
      * @param requiredCourses Course codes for required courses.
      */
-    public void setRequiredCoursesByName(ArrayList<String> requiredCourses) {
-        this.requiredCoursesByName = requiredCourses;
+    public void setRequiredCoursesByCode(ArrayList<String> requiredCourses) {
+        this.requiredCoursesByCode = requiredCourses;
     }
 }

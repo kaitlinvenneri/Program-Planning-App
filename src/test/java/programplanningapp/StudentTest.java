@@ -18,8 +18,8 @@ public class StudentTest {
     @Before
     public void setUp() {
         String name = "Comp Sci";
-        ArrayList<String> requiredCoursesByName = new ArrayList<>();
-        program = new Program(name, requiredCoursesByName);
+        ArrayList<String> requiredCoursesByCode = new ArrayList<>();
+        program = new Program(name, requiredCoursesByCode);
         coursesOnTranscript = new ArrayList<>();
         String courseAttemptOneCode = "CIS*4450";
         Status courseAttemptOneStatus = Status.PLANNED;
