@@ -75,6 +75,14 @@ public class Menu {
         menuOptions.add(option);
     }
 
+    public void handleMenu() {
+        InputHandler inputHandler = new InputHandler();
+        System.out.print("\n" + toString());
+
+        int command = inputHandler.getCommand();
+        inputHandler.processCommand(this, command);
+    }
+
     /**
      * Making a human readable toString() for the menu.
      */

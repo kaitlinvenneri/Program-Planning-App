@@ -47,12 +47,8 @@ public class UserMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        InputHandler inputHandler = new InputHandler();
         createUserMenu();
-        System.out.print(userMenu.toString());
-
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(userMenu, command);
+        userMenu.handleMenu();
     }
 
     /**

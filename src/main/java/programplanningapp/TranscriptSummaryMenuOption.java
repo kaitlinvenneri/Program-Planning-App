@@ -6,6 +6,7 @@ public class TranscriptSummaryMenuOption implements MenuOption {
     private int value;
     private String description;
     private Student student;
+    private Menu parentMenu;
 
     /**
      * Create the UploadTranscriptMenuOption and initialize its description.
@@ -13,9 +14,10 @@ public class TranscriptSummaryMenuOption implements MenuOption {
      * @param desc The description to be assigned.
      * @param aStudent student to provide summary for
      */
-    public TranscriptSummaryMenuOption(String desc, Student aStudent) {
+    public TranscriptSummaryMenuOption(String desc, Student aStudent, Menu menu) {
         description = desc;
         student = aStudent;
+        parentMenu = menu;
     }
 
     /**
@@ -93,7 +95,7 @@ public class TranscriptSummaryMenuOption implements MenuOption {
                 System.out.println(courseAttempt.toString());
             }
         }
-
+        parentMenu.handleMenu();
     }
 
     /**

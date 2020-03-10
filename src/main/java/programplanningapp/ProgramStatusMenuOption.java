@@ -6,6 +6,7 @@ public class ProgramStatusMenuOption implements MenuOption {
     private int value;
     private String description;
     private Student student;
+    private Menu parentMenu;
 
     /**
      * Create the ProgramStatusMenuOption and initialize.
@@ -13,9 +14,10 @@ public class ProgramStatusMenuOption implements MenuOption {
      * @param desc The description to be assigned.
      * @param aStudent The student to get a program status for
      */
-    public ProgramStatusMenuOption(String desc, Student aStudent) {
+    public ProgramStatusMenuOption(String desc, Student aStudent, Menu menu) {
         description = desc;
         student = aStudent;
+        parentMenu = menu;
     }
 
     /**
@@ -90,6 +92,8 @@ public class ProgramStatusMenuOption implements MenuOption {
         } else {
             System.out.println("\nYou have completed all courses for your program. Congratulations!");
         }
+
+        parentMenu.handleMenu();
     }
 
     /**

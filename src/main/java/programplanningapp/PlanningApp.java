@@ -9,7 +9,9 @@ public class PlanningApp {
      *  @return main menu
      */
     public Menu createMainMenu() {
-        mainMenu = new Menu("This is the main menu");
+        mainMenu = new Menu("This is the main menu. Please note that once you "
+                + "select between administrator and user, "
+                + "you will need to restart the application to change user type.");
         MenuOption adminOption = new AdminMenuOption("Act as administrator");
         mainMenu.addOption(adminOption);
         MenuOption userOption = new UserMenuOption("Act as user");
@@ -33,13 +35,8 @@ public class PlanningApp {
      * Method for setting up the app.
      */
     private void setup() {
-        InputHandler inputHandler = new InputHandler();
         mainMenu = createMainMenu();
-        System.out.println(getWelcomeMessage());
-        System.out.print(mainMenu.toString());
-
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(mainMenu, command);
+        mainMenu.handleMenu();
     }
 
     private String getWelcomeMessage() {
