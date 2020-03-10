@@ -185,7 +185,7 @@ public final class DataUtility {
             if (programToAdd.getName().equals(savedProgram.getName())) {
                 programAlreadySaved = true;
                 overwrittenPrograms.add(programToAdd);
-                savedProgram.setRequiredCoursesByName(programToAdd.getRequiredCoursesByName());
+                savedProgram.setRequiredCoursesByCode(programToAdd.getRequiredCoursesByCode());
             }
         }
 
@@ -214,10 +214,10 @@ public final class DataUtility {
                 programLine = "";
                 programLine = programLine + program.getName() + ",";
 
-                for (int i = 0; i < program.getRequiredCoursesByName().size(); i++) {
-                    programLine = programLine + program.getRequiredCoursesByName().get(i);
+                for (int i = 0; i < program.getRequiredCoursesByCode().size(); i++) {
+                    programLine = programLine + program.getRequiredCoursesByCode().get(i);
 
-                    if (i + 1 < program.getRequiredCoursesByName().size()) {
+                    if (i + 1 < program.getRequiredCoursesByCode().size()) {
                         programLine = programLine + ",";
                     }
                 }

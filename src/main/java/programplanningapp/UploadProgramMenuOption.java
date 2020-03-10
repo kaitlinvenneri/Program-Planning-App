@@ -76,7 +76,7 @@ public class UploadProgramMenuOption implements MenuOption {
 
             System.out.println("\nProgram name: " + program.getName() + "\n");
             System.out.println("Required Courses: ");
-            for (String courseName : program.getRequiredCoursesByName()) {
+            for (String courseName : program.getRequiredCoursesByCode()) {
                 System.out.println(courseName);
             }
 
