@@ -48,22 +48,19 @@ public class AdminMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        InputHandler inputHandler = new InputHandler();
         createAdminMenu();
-        System.out.print(adminMenu.toString());
-
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(adminMenu, command);
+        adminMenu.handleMenu();
     }
 
     /**
      * Create the menu of options the administrator can choose from.
      */
     private void createAdminMenu() {
-        adminMenu = new Menu("You have reached the administrator menu.");
-        MenuOption uploadCourses = new UploadCoursesMenuOption("Upload File Containing Courses");
+        adminMenu = new Menu("You are within the administrator menu.");
+        MenuOption uploadCourses = new UploadCoursesMenuOption("Upload File Containing Courses", adminMenu);
         adminMenu.addOption(uploadCourses);
-        MenuOption uploadProgram = new UploadProgramMenuOption("Upload File Containing Program Requirements");
+        MenuOption uploadProgram = new UploadProgramMenuOption("Upload File Containing Program Requirements",
+                adminMenu);
         adminMenu.addOption(uploadProgram);
         MenuOption quitOption = new QuitMenuOption("Quit");
         adminMenu.addOption(quitOption);

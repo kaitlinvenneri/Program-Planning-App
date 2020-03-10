@@ -61,6 +61,7 @@ public class UploadTranscriptMenuOption implements MenuOption {
         System.out.println("The file is assumed to be in the resources directory.");
         System.out.println("For instance for transcript.csv, only enter \"transcript.csv\":");
         filename = inputHandler.getFilename();
+
         try {
             courses = transcriptParser.parseFile(filename);
             student.setCoursesOnTranscript(courses);
@@ -70,10 +71,7 @@ public class UploadTranscriptMenuOption implements MenuOption {
             handleUserSelectingProgram();
 
             createUserSubMenu();
-            System.out.print(userSubMenu.toString());
-
-            int command = inputHandler.getCommand();
-            inputHandler.processCommand(userSubMenu, command);
+            userSubMenu.handleMenu();
         } catch (Exception e) {
             System.out.println("The filename you provided either does not exist, "
                     + "or contains an invalid transcript file.");
@@ -82,14 +80,8 @@ public class UploadTranscriptMenuOption implements MenuOption {
     }
 
     private void handleUserSelectingProgram() {
-        InputHandler inputHandler = new InputHandler();
-
         createProgramOptionsMenu();
-
-        System.out.print(programOptionsMenu.toString());
-
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(programOptionsMenu, command);
+        programOptionsMenu.handleMenu();
     }
 
     private void createProgramOptionsMenu() {
@@ -109,9 +101,9 @@ public class UploadTranscriptMenuOption implements MenuOption {
     private void createUserSubMenu() {
         userSubMenu = new Menu("Since you have uploaded a transcript and selected your program, "
                 + "you may now choose from the following options:");
-        MenuOption transcriptSummary = new TranscriptSummaryMenuOption("Get Transcript Summary", student);
+        MenuOption transcriptSummary = new TranscriptSummaryMenuOption("Get Transcript Summary", student, userSubMenu);
         userSubMenu.addOption(transcriptSummary);
-        MenuOption programStatus = new ProgramStatusMenuOption("Get Program Status", student);
+        MenuOption programStatus = new ProgramStatusMenuOption("Get Program Status", student, userSubMenu);
         userSubMenu.addOption(programStatus);
         MenuOption quitOption = new QuitMenuOption("Quit");
         userSubMenu.addOption(quitOption);

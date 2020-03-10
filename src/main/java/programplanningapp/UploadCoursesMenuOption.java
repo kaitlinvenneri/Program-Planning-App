@@ -5,14 +5,17 @@ import java.util.ArrayList;
 public class UploadCoursesMenuOption implements MenuOption {
     private int value;
     private String description;
+    private Menu parentMenu;
 
     /**
      * Create the UploadCoursesMenuOption and initialize its description.
      *
      * @param desc The description to be assigned.
+     * @param menu The menu that this menu option belongs to.
      */
-    public UploadCoursesMenuOption(String desc) {
+    public UploadCoursesMenuOption(String desc, Menu menu) {
         description = desc;
+        parentMenu = menu;
     }
 
     /**
@@ -83,6 +86,8 @@ public class UploadCoursesMenuOption implements MenuOption {
             } else {
                 System.out.println("\nNo courses were overwritten.");
             }
+
+            parentMenu.handleMenu();
         } catch (Exception e) {
             System.out.println("The filename you provided either does not exist, "
                     + "or contains an invalid file of courses.");

@@ -15,8 +15,7 @@ public class InputHandler {
      * @return the name of the file provided by the user
      */
     public String getFilename() {
-        int command = 0;
-        System.out.println("> ");
+        System.out.print("> ");
         Scanner scanner = new Scanner(System.in);
         String filename;
         String separator = System.getProperty("file.separator");
@@ -38,7 +37,7 @@ public class InputHandler {
         //TODO: Improve Error handling here
         //Currently this handles errors by creating a command guaranteed to not be an option
         int command = 0;
-        System.out.println("> ");
+        System.out.print("> ");
         Scanner scanner = new Scanner(System.in);
         String inputLine;
         inputLine = scanner.nextLine();
