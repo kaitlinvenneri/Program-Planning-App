@@ -75,6 +75,11 @@ public class Menu {
         menuOptions.add(option);
     }
 
+    /**
+     * Handle the menu.
+     * Print out the menu and get user input.
+     * Then handle the command based on the menu option chosen.
+     */
     public void handleMenu() {
         InputHandler inputHandler = new InputHandler();
         System.out.print("\n" + toString());

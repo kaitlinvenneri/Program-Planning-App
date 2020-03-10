@@ -12,7 +12,8 @@ public class ProgramStatusMenuOption implements MenuOption {
      * Create the ProgramStatusMenuOption and initialize.
      *
      * @param desc The description to be assigned.
-     * @param aStudent The student to get a program status for
+     * @param aStudent The student to get a program status for.
+     * @param menu The menu that this menu option belongs to.
      */
     public ProgramStatusMenuOption(String desc, Student aStudent, Menu menu) {
         description = desc;

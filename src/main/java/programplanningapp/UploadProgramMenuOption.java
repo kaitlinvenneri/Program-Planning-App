@@ -11,6 +11,7 @@ public class UploadProgramMenuOption implements MenuOption {
      * Create the UploadProgramMenuOption and initialize its description.
      *
      * @param desc The description to be assigned.
+     * @param menu The menu that this menu option belongs to.
      */
     public UploadProgramMenuOption(String desc, Menu menu) {
         description = desc;

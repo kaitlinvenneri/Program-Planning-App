@@ -13,6 +13,7 @@ public class TranscriptSummaryMenuOption implements MenuOption {
      *
      * @param desc The description to be assigned.
      * @param aStudent student to provide summary for
+     * @param menu The menu that this menu option belongs to.
      */
     public TranscriptSummaryMenuOption(String desc, Student aStudent, Menu menu) {
         description = desc;
@@ -68,34 +69,45 @@ public class TranscriptSummaryMenuOption implements MenuOption {
             }
         }
 
-        System.out.println("Transcript Summary");
+        System.out.print(getTranscriptSummary(completedCourses, inProgressCourses, plannedCourses));
+
+        parentMenu.handleMenu();
+    }
+
+    private String getTranscriptSummary(ArrayList<CourseAttempt> completedCourses,
+                                        ArrayList<CourseAttempt> inProgressCourses,
+                                        ArrayList<CourseAttempt> plannedCourses) {
+        String transcriptSummary = "Transcript Summary\n";
+
         if (completedCourses.size() == 0) {
-            System.out.println("You have not completed any courses");
+            transcriptSummary = transcriptSummary + "You have not completed any courses\n";
         } else {
-            System.out.println("Courses Completed:");
+            transcriptSummary = transcriptSummary + "Courses Completed:\n";
+
             for (CourseAttempt courseAttempt : completedCourses) {
-                System.out.println(courseAttempt.toString());
+                transcriptSummary = transcriptSummary + courseAttempt.toString() + "\n";
             }
         }
 
         if (inProgressCourses.size() == 0) {
-            System.out.println("\nYou have no courses in progress");
+            transcriptSummary = transcriptSummary + "\nYou have no courses in progress\n";
         } else {
-            System.out.println("\nCourses In Progress:");
+            transcriptSummary = transcriptSummary + "\nCourses In Progress:\n";
             for (CourseAttempt courseAttempt : inProgressCourses) {
-                System.out.println(courseAttempt.toString());
+                transcriptSummary = transcriptSummary + courseAttempt.toString() + "\n";
             }
         }
 
         if (plannedCourses.size() == 0) {
-            System.out.println("\nYou have no courses planned");
+            transcriptSummary = transcriptSummary + "\nYou have no courses planned\n";
         } else {
-            System.out.println("\nCourses Planned:");
+            transcriptSummary = transcriptSummary + "\nCourses Planned:\n";
             for (CourseAttempt courseAttempt : plannedCourses) {
-                System.out.println(courseAttempt.toString());
+                transcriptSummary = transcriptSummary + courseAttempt.toString() + "\n";
             }
         }
-        parentMenu.handleMenu();
+
+        return transcriptSummary;
     }
 
     /**
