@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TranscriptFileParser {
+public final class TranscriptFileParser {
+    private TranscriptFileParser() {
+        //not called
+    }
     /**
      * Handle the parsing of the transcript file.
      *
@@ -12,8 +15,7 @@ public class TranscriptFileParser {
      * @return The parsed collection of courses
      * @throws Exception Either file IO exception, or invalid file type exception
      */
-    public ArrayList<CourseAttempt> parseFile(String filename) throws Exception {
-        InputHandler inputHandler = new InputHandler();
+    public static ArrayList<CourseAttempt> parseFile(String filename) throws Exception {
         Scanner scanner = null;
         String oneLine;
         CourseAttempt courseAttempt;
@@ -42,7 +44,7 @@ public class TranscriptFileParser {
      * @return The parsed course attempt
      * @throws Exception Regarding invalid file type
      */
-    private CourseAttempt parseLineIntoCourseAttempt(String line) throws Exception {
+    private static CourseAttempt parseLineIntoCourseAttempt(String line) throws Exception {
         String[] parsedLine = line.split(",");
         CourseAttempt courseAttempt;
         String courseCode;

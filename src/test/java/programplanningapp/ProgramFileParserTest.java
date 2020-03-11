@@ -17,11 +17,9 @@ public class ProgramFileParserTest {
 
     /**
      * Setup member variables for tests.
-     *
-     * @throws Exception Either file IO exception, or invalid file type exception
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         generateProgram();
         generateProgramFile();
     }
@@ -100,11 +98,10 @@ public class ProgramFileParserTest {
      */
     @Test
     public void testParseFile() throws Exception {
-        ProgramFileParser programFileParser = new ProgramFileParser();
         Program programFromParsed;
 
         try {
-            programFromParsed = programFileParser.parseFile(filename);
+            programFromParsed = ProgramFileParser.parseFile(filename);
             assertTrue(programsAreEqual(programFromParsed, programToWrite));
         } catch (Exception e) {
             throw e;

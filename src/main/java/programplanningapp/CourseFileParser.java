@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CourseFileParser {
+public final class CourseFileParser {
+    private CourseFileParser() {
+        //not called
+    }
     /**
      * Handle the parsing of the course list file.
      *
@@ -12,7 +15,7 @@ public class CourseFileParser {
      * @return The parsed collection of admin courses
      * @throws Exception Either file IO exception, or invalid file type exception
      */
-    public ArrayList<AdminCourse> parseFile(String filename) throws Exception {
+    public static  ArrayList<AdminCourse> parseFile(String filename) throws Exception {
         Scanner scanner = null;
         String oneLine;
         AdminCourse course;
@@ -41,7 +44,7 @@ public class CourseFileParser {
      * @return The parsed admin course
      * @throws Exception Regarding invalid file type
      */
-    private AdminCourse parseLineIntoAdminCourse(String line) throws Exception {
+    private static AdminCourse parseLineIntoAdminCourse(String line) throws Exception {
         String[] parsedLine = line.split(",");
         AdminCourse adminCourse;
         String courseCode;

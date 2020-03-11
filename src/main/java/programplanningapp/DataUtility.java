@@ -32,7 +32,6 @@ public final class DataUtility {
      */
     public static ArrayList<AdminCourse> getStoredAdminCourses() {
         ArrayList<AdminCourse> storedAdminCourses = new ArrayList<>();
-        CourseFileParser courseFileParser = new CourseFileParser();
         String filename;
         File savedCoursesFile;
 
@@ -42,7 +41,7 @@ public final class DataUtility {
             savedCoursesFile = new File(filename);
 
             if (savedCoursesFile.exists()) {
-                storedAdminCourses = courseFileParser.parseFile(filename);
+                storedAdminCourses = CourseFileParser.parseFile(filename);
             }
         } catch (Exception e) {
             //TODO: Improve error handling here:
@@ -140,7 +139,6 @@ public final class DataUtility {
      */
     public static ArrayList<Program> getStoredPrograms() {
         ArrayList<Program> storedPrograms = new ArrayList<>();
-        ProgramFileParser programFileParser = new ProgramFileParser();
         File folder;
         String filename;
         ArrayList<String> filenames = new ArrayList<>();
@@ -160,7 +158,7 @@ public final class DataUtility {
             }
 
             for (String nameOfFile : filenames) {
-                storedPrograms.add(programFileParser.parseFile(nameOfFile));
+                storedPrograms.add(ProgramFileParser.parseFile(nameOfFile));
             }
         } catch (Exception e) {
             //TODO: Improve error handling here:

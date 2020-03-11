@@ -17,11 +17,9 @@ public class CourseFileParserTest {
 
     /**
      * Setup member variables for tests.
-     *
-     * @throws Exception Either file IO exception, or invalid file type exception
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         coursesToWrite = generateAdminCourses();
         filename = generateCourseFile();
     }
@@ -125,11 +123,10 @@ public class CourseFileParserTest {
      */
     @Test
     public void testParseFile() throws  Exception {
-        CourseFileParser courseFileParser = new CourseFileParser();
         ArrayList<AdminCourse> coursesFromParsed;
 
         try {
-            coursesFromParsed = courseFileParser.parseFile(filename);
+            coursesFromParsed = CourseFileParser.parseFile(filename);
 
             for (int i = 0; i < coursesToWrite.size(); i++) {
                 assertTrue(coursesAreEqual(coursesFromParsed.get(i), coursesToWrite.get(i)));

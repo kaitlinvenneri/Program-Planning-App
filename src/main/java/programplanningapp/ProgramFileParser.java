@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ProgramFileParser {
+public final class ProgramFileParser {
+    private ProgramFileParser() {
+        //not called
+    }
     /**
      * Handle the parsing of the program file.
      *
@@ -12,7 +15,7 @@ public class ProgramFileParser {
      * @return The parsed Program
      * @throws Exception Either file IO exception, or invalid file type exception
      */
-    public Program parseFile(String filename) throws Exception {
+    public static Program parseFile(String filename) throws Exception {
         Scanner scanner = null;
         String oneLine;
         String fileContents = "";
@@ -42,7 +45,7 @@ public class ProgramFileParser {
      * @return The parsed program
      * @throws Exception Regarding invalid file type
      */
-    private Program parseFileContentsIntoProgram(String fileContents) throws Exception {
+    private static Program parseFileContentsIntoProgram(String fileContents) throws Exception {
         Program program;
         String[] parsedLine = fileContents.split(",");
         String programName;
@@ -67,9 +70,6 @@ public class ProgramFileParser {
             for (int i = 1; i < parsedLine.length; i++) {
                 requiredCourses.add(parsedLine[i]);
             }
-
-            //TODO: Validate here that all course codes in requiredCourses
-            // are already saved in the system as AdminCourses
 
             program = new Program(programName, requiredCourses);
 

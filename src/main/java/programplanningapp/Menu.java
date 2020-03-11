@@ -81,11 +81,10 @@ public class Menu {
      * Then handle the command based on the menu option chosen.
      */
     public void handleMenu() {
-        InputHandler inputHandler = new InputHandler();
         System.out.print("\n" + toString());
 
-        int command = inputHandler.getCommand();
-        inputHandler.processCommand(this, command);
+        int command = InputHandler.getCommand();
+        InputHandler.processCommand(this, command);
     }
 
     /**

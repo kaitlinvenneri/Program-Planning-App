@@ -51,8 +51,6 @@ public class UploadProgramMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        InputHandler inputHandler = new InputHandler();
-        ProgramFileParser programFileParser = new ProgramFileParser();
         String filename;
         Program program;
         ArrayList<Program> overwrittenPrograms;
@@ -60,9 +58,9 @@ public class UploadProgramMenuOption implements MenuOption {
         System.out.println("Please enter the name of the file containing the program to be added");
         System.out.println("The file is assumed to be in the resources directory.");
         System.out.println("For instance for computingGeneralProgram.csv, only enter \"computingGeneralProgram.csv\":");
-        filename = inputHandler.getFilename();
+        filename = InputHandler.getFilename();
         try {
-            program = programFileParser.parseFile(filename);
+            program = ProgramFileParser.parseFile(filename);
 
             //update stored data regarding programs and get overwritten programs
             overwrittenPrograms = DataUtility.updateStoredPrograms(program);
