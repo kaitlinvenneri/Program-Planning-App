@@ -30,6 +30,7 @@ Given that I have selected to upload a file containing program course requiremen
 When I provide the name of a file that contains incorrectly formatted program course requirements, 
 Then I am prompted to re-enter the filename of a valid file containing program course requirements.
 
+
 2) As a user, I want to select my program, so that I can analyze my transcript against my progam of study.
 
 *Acceptance Criteria:*
@@ -37,6 +38,7 @@ Then I am prompted to re-enter the filename of a valid file containing program c
 Given that I have uploaded a valid transcript, 
 When I am provided with program options, 
 Then I am able to select my program of study.
+
 
 3) As a user, I want to analyze my transcript against my program of study, so that I can find out which required courses I have completed and which required courses I still need.
 
