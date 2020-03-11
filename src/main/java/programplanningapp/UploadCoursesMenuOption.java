@@ -51,8 +51,6 @@ public class UploadCoursesMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        InputHandler inputHandler = new InputHandler();
-        CourseFileParser courseFileParser = new CourseFileParser();
         String filename;
         ArrayList<AdminCourse> coursesToAdd;
         ArrayList<AdminCourse> overwrittenCourses;
@@ -62,9 +60,9 @@ public class UploadCoursesMenuOption implements MenuOption {
         System.out.println("For instance for courselist.csv, only enter \"courselist.csv\":");
         System.out.println("Note that if any courses to be added already exist in the system, "
                 + "they will be overwritten");
-        filename = inputHandler.getFilename();
+        filename = InputHandler.getFilename();
         try {
-            coursesToAdd = courseFileParser.parseFile(filename);
+            coursesToAdd = CourseFileParser.parseFile(filename);
 
             //update stored data regarding courses and get overwritten courses
             overwrittenCourses = DataUtility.updateStoredAdminCourses(coursesToAdd);

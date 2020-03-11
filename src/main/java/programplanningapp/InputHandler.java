@@ -2,11 +2,9 @@ package programplanningapp;
 
 import java.util.Scanner;
 
-public class InputHandler {
-    /**
-     * Create the InputHandler.
-     */
-    public InputHandler() {
+public final class InputHandler {
+    private InputHandler() {
+        //not called
     }
 
     /**
@@ -14,7 +12,7 @@ public class InputHandler {
      *
      * @return the name of the file provided by the user
      */
-    public String getFilename() {
+    public static String getFilename() {
         System.out.print("> ");
         Scanner scanner = new Scanner(System.in);
         String filename;
@@ -33,7 +31,7 @@ public class InputHandler {
      *
      * @return the users command converted to an int
      */
-    public int getCommand() {
+    public static int getCommand() {
         //TODO: Improve Error handling here
         //Currently this handles errors by creating a command guaranteed to not be an option
         int command = 0;
@@ -73,7 +71,7 @@ public class InputHandler {
      * @param menu Menu for command to be processed for.
      * @param command Value of command to be processed.
      */
-    public void processCommand(Menu menu, int command) {
+    public static void processCommand(Menu menu, int command) {
         MenuOption option;
 
         if (menu.hasOption(command)) {

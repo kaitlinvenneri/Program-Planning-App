@@ -51,8 +51,6 @@ public class UploadTranscriptMenuOption implements MenuOption {
      */
     @Override
     public void handleMenuOption() {
-        InputHandler inputHandler = new InputHandler();
-        TranscriptFileParser transcriptParser = new TranscriptFileParser();
         String filename;
         ArrayList<CourseAttempt> courses;
         student = new Student();
@@ -60,10 +58,10 @@ public class UploadTranscriptMenuOption implements MenuOption {
         System.out.println("Please enter the name of the file containing the transcript");
         System.out.println("The file is assumed to be in the resources directory.");
         System.out.println("For instance for transcript.csv, only enter \"transcript.csv\":");
-        filename = inputHandler.getFilename();
+        filename = InputHandler.getFilename();
 
         try {
-            courses = transcriptParser.parseFile(filename);
+            courses = TranscriptFileParser.parseFile(filename);
             student.setCoursesOnTranscript(courses);
             System.out.println("You have " + student.getCoursesOnTranscript().size()
                     + " courses on your transcript.\n");
