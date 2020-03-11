@@ -78,9 +78,8 @@ public final class InputHandler {
             option = menu.getMenuOptionByValue(command);
             option.handleMenuOption();
         } else {
-            //TODO: Add Error handling in a better way
-            //At the moment, the program just ends if not provided a valid input
             System.out.println("\n" + menu.getNonOptionMessage());
+            menu.handleMenu();
         }
     }
 }
