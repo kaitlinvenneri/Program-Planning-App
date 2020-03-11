@@ -100,11 +100,10 @@ public class ProgramFileParserTest {
      */
     @Test
     public void testParseFile() throws Exception {
-        ProgramFileParser programFileParser = new ProgramFileParser();
         Program programFromParsed;
 
         try {
-            programFromParsed = programFileParser.parseFile(filename);
+            programFromParsed = ProgramFileParser.parseFile(filename);
             assertTrue(programsAreEqual(programFromParsed, programToWrite));
         } catch (Exception e) {
             throw e;

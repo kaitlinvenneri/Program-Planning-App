@@ -125,11 +125,10 @@ public class CourseFileParserTest {
      */
     @Test
     public void testParseFile() throws  Exception {
-        CourseFileParser courseFileParser = new CourseFileParser();
         ArrayList<AdminCourse> coursesFromParsed;
 
         try {
-            coursesFromParsed = courseFileParser.parseFile(filename);
+            coursesFromParsed = CourseFileParser.parseFile(filename);
 
             for (int i = 0; i < coursesToWrite.size(); i++) {
                 assertTrue(coursesAreEqual(coursesFromParsed.get(i), coursesToWrite.get(i)));
