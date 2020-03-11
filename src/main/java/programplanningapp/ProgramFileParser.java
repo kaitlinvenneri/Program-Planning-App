@@ -71,9 +71,6 @@ public final class ProgramFileParser {
                 requiredCourses.add(parsedLine[i]);
             }
 
-            //TODO: Validate here that all course codes in requiredCourses
-            // are already saved in the system as AdminCourses
-
             program = new Program(programName, requiredCourses);
 
             return program;
