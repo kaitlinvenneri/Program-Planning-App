@@ -17,11 +17,9 @@ public class CourseFileParserTest {
 
     /**
      * Setup member variables for tests.
-     *
-     * @throws Exception Either file IO exception, or invalid file type exception
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         coursesToWrite = generateAdminCourses();
         filename = generateCourseFile();
     }
