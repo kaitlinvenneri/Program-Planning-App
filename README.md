@@ -1,9 +1,11 @@
-README
-========
+## Program Planning App
 
-**How to Build & Run My App**
+**This is a start to server that is intended to help students at the University of Guelph with planning their undergraduate programs**
 
-From Inside of the project Folder:
+<hr>
 
->gradle build
->enter command into command line: gradle run
+<ins>Getting Started:</ins>
+
+1. Clone this repository.
+2. gradle build
+3. gradle run
